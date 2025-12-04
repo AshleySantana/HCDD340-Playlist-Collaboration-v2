@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home page</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="nav-left">
+              <a href="#" class="logo">PlayList Collaborator</a>
+            </div>
+          
+            <div class="nav-right">
+              <button id="homeBtn" onclick="toHome()">Home</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search</button>
+              <button id="viewPlaylistsBtn">Playlists</button>
+              <button id="createPlaylistsBtn">Add songs to Playlist</button>
+            </div>
+        </header>
+          
+        <br>
+        <h1>Welcome Jo!</h1>
+        <br>
+
+        <div class="wrapper">
+          <div id="recentsWrapper">
+            <h2>Recent playlists</h2>
+            <div id="recentSongs"></div>
+          </div>
+          <br>
+
+          <div id="activityWrapper">
+            <h2>Activity</h2>
+            <div id="activityFeed">
+              <p>Eden invited you to: House party playlist</p>
+              <p>Henry joined: House party playlist</p>
+              <p>Ashley added songs: Creep by Radiohead</p>
+              <p>Ashley voted on: Golden by KPOP Demon Hunters</p>
+            </div>
+          </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

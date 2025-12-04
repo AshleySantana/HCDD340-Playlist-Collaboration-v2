@@ -1,0 +1,177 @@
+:root{
+    --dark-purple: #1d0b15;
+    --violet-purple: #1a1f74;
+    --white: #ffffff;
+    --light-purple: #f1ebff;
+    --mid-grey: #cccccc;
+    --dark-grey: #333333;
+    --muted: #8a8a8a;
+    --transition: 0.28s ease;
+    background-color: var(--light-purple);
+}
+
+/* NAVBAR container */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5em;
+    background-color: var(--dark-purple); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+  
+  /* Left Logo */
+.nav-left .logo {
+    color: var(--light-purple);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+  
+  /* Center Search Bar */
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+  
+.search-bar {
+    width: 60%;
+    max-width: 400px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #333;
+    padding: 0 10px;
+    color: white;
+}
+  
+.search-bar::placeholder {
+    color: #b0b0b0;
+}
+  
+  /* Right Links */
+.nav-right a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+  
+.nav-right a:hover {
+    text-decoration: underline;
+}
+  
+  /* Push rest of page down so it's not hidden behind nav */
+body {
+    margin-top: 5.5em;
+}
+
+/*HOME PAGE STYLING*/
+/* Grid for your cards */
+#recentSongs{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* Square Card */
+.card {
+  width: 220px;
+  aspect-ratio: 1 / 1;
+  background: var(--white);
+  border: 2px solid var(--mid-grey);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+/* Album cover */
+.card .cover{
+  flex: 0 0 62%;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Text area */
+.card .meta{
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+}
+
+.card .title{
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark-purple);
+}
+
+.card .artist{
+  margin: 4px 0 0 0;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Hover */
+.card:hover{
+  background: var(--light-purple);
+  border-color: var(--violet-purple);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+/* Selected State */
+.card.selected{
+  background: var(--violet-purple);
+  color: var(--white);
+  border-color: var(--dark-purple);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.22);
+}
+
+/* Selected: text switches to white */
+.card.selected .title,
+.card.selected .artist{
+  color: var(--white);
+}
+
+/* Keyboard focus */
+.card:focus-visible{
+  outline: 3px solid var(--violet-purple);
+  transform: translateY(-4px);
+}
+
+/* Responsive */
+@media (max-width: 480px){
+  .card{
+    width: 150px;
+  }
+}
+
+#activityFeed{
+  width: 20rem;
+  height: 10rem;
+  background: var(--white);
+  border: 2px solid var(--mid-grey);
+  padding: 1em;
+  border-radius: 12px;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+/* END OF HOME PAGE STYLING */
