@@ -175,3 +175,77 @@ body {
   box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 /* END OF HOME PAGE STYLING */
+
+/* 
+Henry: Styles for profile card/status */
+.wrapper{ max-width:900px; margin: 12px auto; padding: 12px; }
+
+/* Namespaced profile styles (prefix with .hcd-profile-card to reduce conflicts) */
+.hcd-profile-card{
+  max-width: 900px;
+  margin: 0 auto 24px auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  background: linear-gradient(180deg, #faf7ff 0%, #f3eefb 100%); /*FYI: use ts to change background of card :) */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+.hcd-profile-card .profile-avatar{ position: relative; }
+.hcd-profile-card .profile-avatar img{
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: filter var(--transition);
+}
+.hcd-profile-card .profile-avatar:hover img{
+  filter: brightness(0.4);
+}
+.pic-edit-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white);
+  text-align: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+.hcd-profile-card .profile-avatar:hover .pic-edit-text{
+  opacity: 1;
+}
+.hcd-profile-card .status-indicator{
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+/* Colors by data attribute */
+.hcd-profile-card .status-indicator[data-status="online"], .hcd-profile-card .status-indicator.s-online{ background: #28c76f; }
+.hcd-profile-card .status-indicator[data-status="away"], .hcd-profile-card .status-indicator.s-away{ background: #ffb020; }
+.hcd-profile-card .status-indicator[data-status="busy"], .hcd-profile-card .status-indicator.s-busy{ background: #ff4d4f; }
+.hcd-profile-card .status-indicator[data-status="offline"], .hcd-profile-card .status-indicator.s-offline{ background: #bdbdbd; }
+
+.hcd-profile-card .profile-info{ flex: 1; }
+.hcd-profile-card .profile-info h2{ margin: 0 0 6px 0; font-size: 1.4rem; color: var(--dark-grey); }
+.hcd-profile-card .status-row{ display:flex; align-items:center; gap:12px; margin-bottom:8px; }
+.hcd-profile-card .status-label{ font-size: 0.95rem; color: var(--muted); }
+.hcd-profile-card .status-select{ padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:#fff; }
+.hcd-profile-card .follow-stats{ display:flex; gap:16px; color:var(--muted); font-size:0.95rem }
+.hcd-profile-card .follow-stats strong{ color:var(--dark-grey); }
+
+/* Small helper */
+.hcd-profile-card .sr-only{ position:absolute; left:-9999px; }
+
+/* END of Henry's profile card/status styles */
