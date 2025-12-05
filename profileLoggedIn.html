@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple HTML page.</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="manifest" href="/manifest.json">
+        <style>
+            .my-playlists-wrapper{ max-width:900px; margin:0 auto; padding:12px; display:flex; align-items:stretch; gap:12px; }
+            .playlists-container{ display:flex; gap:12px; overflow-x:hidden; flex:1; }
+            .playlist-square{ width:120px; height:120px; background:#ffffff; border:2px solid var(--mid-grey); border-radius:8px; flex-shrink:0; cursor:pointer; }
+            .scroll-btn{ background:var(--dark-purple); color:var(--white); border:none; padding:0 16px; border-radius:6px; cursor:pointer; font-size:20px; }
+            .scroll-btn:hover{ opacity:0.8; }
+        </style>
+    </head>
+    <body>
+        
+        <header class="navbar">
+            <div class="nav-left">
+              <a href="#" class="logo">MySite</a>
+            </div>
+          
+            <div class="nav-center">
+              <input type="text" placeholder="Search…" class="search-bar">
+            </div>
+          
+            <div class="nav-right">
+              <button id="homeBtn" onclick="toHome()">Home button</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search Button</button>
+              <button id="viewPlaylistsBtn">Playlists</button>
+              <button id="createPlaylistsBtn">Add songs to Playlist</button>
+            </div>
+          </header>
+
+        <h1 style ="text-align: center;">Profile</h1>
+
+        <section class="profile-card hcd-profile-card">
+          <div class="profile-avatar">
+            <img src="images/blankPFPimage200x200.jpg" alt="Profile picture" id="profilePic">
+            <span class="status-indicator" id="statusIndicator" data-status="online" title="Online"></span>
+            <span class="pic-edit-text">Change Profile Picture</span>
+          </div>
+          <div class="profile-info">
+            <h2 id="profileName">Your Name</h2>
+            <div class="status-row">
+              <span id="statusLabel" class="status-label">Online</span>
+              <label for="statusSelect" class="sr-only">Set status</label>
+              <select id="statusSelect" class="status-select" aria-label="Set status">
+                <option value="online">Online</option>
+                <option value="away">Away</option>
+                <option value="busy">Busy (DND)</option>
+                <option value="offline">Offline</option>
+              </select>
+            </div>
+            <div class="follow-stats">
+              <span>Followers: <strong id="followersCount">0</strong></span>
+              <span>Following: <strong id="followingCount">0</strong></span>
+            </div>
+          </div>
+        </section>
+
+        <div style="max-width:900px; margin:24px auto;">
+          <button onclick="window.location.href='playlists.html'" style="background:none; border:none; cursor:pointer; padding:0; margin:0 0 12px 0;"><h2 style="margin:0; color:var(--dark-grey); text-align:left;">My Playlists</h2></button>
+          <div class="my-playlists-wrapper">
+            <button class="scroll-btn" id="scrollLeft" onclick="scrollPlaylists(-1)">←</button>
+            <div class="playlists-container" id="playlistsContainer">
+              <div class="playlist-square"></div>
+              <div class="playlist-square"></div>
+              <div class="playlist-square"></div>
+              <div class="playlist-square"></div>
+              <div class="playlist-square"></div>
+              <div class="playlist-square"></div>
+            </div>
+            <button class="scroll-btn" id="scrollRight" onclick="scrollPlaylists(1)">→</button>
+          </div>
+        </div>
+
+        <script src="status.js"></script>
+        <script src="script.js"></script>
+        <script>
+            function scrollPlaylists(direction) {
+                const container = document.getElementById('playlistsContainer');
+                const scrollAmount = 140; // 120px square + 12px gap + 8px buffer
+                container.scrollLeft += direction * scrollAmount;
+            }
+        </script>
+    </body>
+</html>
