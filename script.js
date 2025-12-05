@@ -156,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInputField = document.getElementById("SearchSong");
     if (searchInputField) {
         searchInputField.addEventListener("input", searchSongs);
+        console.log('Search input listener attached.'); 
     }
 
     // Load the songs JSON used for searching
