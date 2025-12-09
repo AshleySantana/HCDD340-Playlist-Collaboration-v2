@@ -290,3 +290,36 @@ Henry: Styles for profile card/status */
   margin-right: auto;
   width: 75%;
 }
+
+/*end Search song styles*/
+
+/*Start libraries styles*/
+
+
+/* Playlist selection */
+.playlist-selection {
+  justify-content: space-around;
+  margin: 30px;
+  max-height: 75%;
+  max-width: 75%;
+}
+
+/* Playlist button */
+.playlist-button {
+  width: 150px;
+  height: 150px;   
+  background-size: cover;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Playlist button hover */
+.playlist-button:hover {
+  transform: scale(1.05);
+}
+
+/*End libraries*/
