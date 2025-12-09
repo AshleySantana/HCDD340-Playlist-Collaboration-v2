@@ -10,12 +10,12 @@
 
         <header class="navbar">
             <div class="nav-left">
-              <a href="#" class="logo">Playlist Collaborator</a>
+              <a href="#" class="logo">PlayList Collaborator</a>
             </div>
           
             <div class="nav-right">
-              <button id="homeBtn" onclick="toHome()">Home button</button>
-              <button id="searchBtn" onclick="toSearchPage()">Search Button</button>
+              <button id="homeBtn" onclick="toHome()">Home</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search</button>
               <button id="viewPlaylistsBtn">Playlists</button>
               <button id="createPlaylistsBtn">Add songs to Playlist</button>
             </div>
@@ -30,8 +30,20 @@
         <section id="searchSongResults">
             <!-- Dynamic search results will be appended here -->
         </section>
-        
+
         <script>
+
+        function toSearchPage(){
+          window.location.href = "search-song.html"
+        }
+ 
+        function toPlaylists(){
+          window.location.href = "playlists.html"
+        }
+        
+        function toHome(){
+            window.location.href = "home.html"
+        }
 
         const albumsList = [
           {
