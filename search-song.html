@@ -27,10 +27,146 @@
         <br></br>
         
         <h2>Search Results</h2>
-        <section id="searchResults">
+        <section id="searchSongResults">
             <!-- Dynamic search results will be appended here -->
         </section>
         
-        <script src="script.js"></script>
+        <script>
+
+        const albumsList = [
+          {
+            title: "The King of Limbs",
+            artist: "Radiohead",
+            image: "images/king_of_limbs.jpg",
+            songs: [
+              { title: "Bloom", length: "5:15" },
+              { title: "Morning Mr Magpie", length: "4:41" },
+              { title: "Little by Little", length: "4:27" },
+              { title: "Feral", length: "3:13" },
+              { title: "Lotus Flower", length: "5:01" },
+              { title: "Codex", length: "4:47" },
+              { title: "Give Up the Ghost", length: "4:50" },
+              { title: "Separator", length: "5:20" }
+              ]
+          },
+              {
+                  title: "OK Computer",
+                  artist: "Radiohead",
+                  image: "images/ok_computer.jpg",
+                  songs: [
+                      { title: "Airbag", length: "4:44" },
+                      { title: "Paranoid Android", length: "6:23" },
+                      { title: "Subterranean Homesick Alien", length: "4:27" },
+                      { title: "Exit Music (For a Film)", length: "4:24" },
+                      { title: "Let Down", length: "4:59" },
+                      { title: "Karma Police", length: "4:21" },
+                      { title: "Fitter Happier", length: "1:57" },
+                      { title: "Electioneering", length: "3:50" },
+                      { title: "Climbing Up the Walls", length: "4:45" },
+                      { title: "No Surprises", length: "3:48" },
+                      { title: "Lucky", length: "4:19" },
+                      { title: "The Tourist", length: "5:24" }
+                  ]
+              },
+              {
+                  title: "Dummy",
+                  artist: "Portishead",
+                  image: "images/dummy.png",
+                  songs: [
+                      { title: "Mysterons", length: "5:02" },
+                      { title: "Sour Times", length: "4:11" },
+                      { title: "Strangers", length: "3:55" },
+                      { title: "It Could Be Sweet", length: "4:16" },
+                      { title: "Wandering Star", length: "4:51" },
+                      { title: "It's a Fire", length: "3:49" },
+                      { title: "Numb", length: "3:54" },
+                      { title: "Roads", length: "5:02" },
+                      { title: "Pedestal", length: "3:39" },
+                      { title: "Biscuit", length: "5:01" },
+                      { title: "Glory Box", length: "5:06" }
+                  ]
+              },
+              {
+                  title: "Third",
+                  artist: "Portishead",
+                  image: "images/third.jpg",
+                  songs: [
+                      { title: "Silence", length: "4:58" },
+                      { title: "Hunter", length: "3:57" },
+                      { title: "Nylon Smile", length: "3:16" },
+                      { title: "The Rip", length: "4:29" },
+                      { title: "Plastic", length: "3:27" },
+                      { title: "We Carry On", length: "6:27" },
+                      { title: "Deep Water", length: "1:31" },
+                      { title: "Machine Gun", length: "4:43" },
+                      { title: "Small", length: "6:45" },
+                      { title: "Magic Doors", length: "3:32" },
+                      { title: "Threads", length: "5:45" }
+                  ]
+              }
+          ];
+     
+          const inputEl = document.getElementById("SearchSong");
+          const resultsSection = document.getElementById("searchSongResults");
+
+          /**
+           * Function to filter and display the search results.
+           */
+          function updateSearchResults() {
+            // 1. Get the current input value and standardize it for searching
+            const searchInput = inputEl.value.toLowerCase().trim();
+
+            // 2. Clear previous results before running a new search
+            resultsSection.innerHTML = "";
+
+            if (!searchInput) {
+              // Show a message when the search input is empty
+              const initialMessage = document.createElement("p");
+              initialMessage.textContent = "Start typing above to see search results.";
+              resultsSection.appendChild(initialMessage);
+              return; // Stop execution if no search term
+            }
+
+            let foundResults = false;
+
+            // 3. Loop through the data to find matches
+            albumsList.forEach(album => {
+                const albumTitle = album.title.toLowerCase();
+                const artistName = album.artist.toLowerCase();
+
+                album.songs.forEach(song => {
+                    const songTitle = song.title.toLowerCase();
+
+                    // Check if song title, album title, or artist name includes the search term
+                    if (
+                        songTitle.includes(searchInput) ||
+                        albumTitle.includes(searchInput) ||
+                        artistName.includes(searchInput)
+                    ) {
+                        const resultDiv = document.createElement("div");
+                        resultDiv.className = 'search-result';
+                        // Display the song details clearly
+                        resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`;
+                        resultsSection.appendChild(resultDiv);
+                        foundResults = true;
+                    }
+                });
+            });
+
+            // 4. Display a message if no results were found
+            if (!foundResults) {
+                const noResults = document.createElement("p");
+                noResults.textContent = `No songs, albums, or artists found for "${inputEl.value}".`;
+                resultsSection.appendChild(noResults);
+            }
+          }
+
+          // 5. Attach the function to the 'input' event of the search field
+          // The 'input' event fires every time the value of the <input> element changes.
+          inputEl.addEventListener('input', updateSearchResults);
+
+          // Initial call to set up the section correctly when the page loads
+          updateSearchResults();
+        </script>
     </body>
 </html>
