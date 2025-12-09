@@ -262,3 +262,31 @@ Henry: Styles for profile card/status */
 .hcd-profile-card .sr-only{ position:absolute; left:-9999px; }
 
 /* END of Henry's profile card/status styles */
+
+/*Start search song styles*/
+
+.search-result {
+  font-size: 18px;
+  background-color: #1D0B15;
+  color: #F1EBFF;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 15px;  
+}
+
+#SearchSong {
+  border-radius: 5px;
+  background-color: #F1EBFF;
+  width: 75%;
+}
+
+#searchSongResults {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--light-purple);
+  border: 1px solid var(--mid-grey);
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
