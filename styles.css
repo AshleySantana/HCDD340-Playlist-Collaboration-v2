@@ -345,6 +345,14 @@ Henry: Styles for profile card/status */
   border-radius: 5px;
 }
 
+.tagsDiv {
+  display: flex;
+}
+
+.playlistTag {
+  padding: 5px;
+}
+
 .playlist-cover {
   width: 50%;
   height: 50%;   
@@ -375,6 +383,10 @@ Henry: Styles for profile card/status */
 .playlist-header h2 {
   margin-top: 10px;
   text-align: center;
+}
+
+#playlistName {
+  margin-bottom: 1px;
 }
 
 .songs-list {
