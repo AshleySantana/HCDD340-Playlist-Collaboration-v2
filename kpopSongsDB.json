@@ -1,0 +1,17 @@
+[
+  {
+    "name": "HUNTR/X",
+    "albums": [
+      {
+        "title": "KPop Demon Hunters",
+        "songs": [
+          { "title": "Golden", "length": "3:19" },
+          { "title": "How It's Done", "length": "3:04" },
+          { "title": "What It Sounds Like", "length": "5:55" },
+          { "title": "Free", "length": "3:12" }
+        ],
+        "description": "KPop demon Hunter songs"
+    }
+    ]
+  }
+]
