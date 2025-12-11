@@ -20,7 +20,7 @@ function toSearchPage(){
 }
  // END OF NAV BAR
 
- 
+
 // Update activity feed w local storage
 /**
  * Click add song to playlist in Search
@@ -35,6 +35,12 @@ function toSearchPage(){
  * Refresh activity feed 
  * Activity feed has new collaboration
  */
+
+function saveUsername() {
+  window.location.href='home.html';
+  username = document.querySelector("#username").value;
+  localStorage.setItem("currUser", username);
+}
 
  // List of songs 
  const albumsList = [

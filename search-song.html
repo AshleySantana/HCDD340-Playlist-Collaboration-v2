@@ -51,7 +51,8 @@
         
         // END OF NAV BAR
 
-        function updateActivityFeed(){
+        function updateActivityFeed(user, songTitle){
+            console.log(user + " added " + songTitle + " to CollaborativePlayist")
             console.log("Updating feed")
         }
 
@@ -161,7 +162,7 @@
                     elem = document.createElement("input");
                     elem.type = "image";
                     elem.src = "./images/add_circle.png";
-                    elem.addEventListener("click", updateActivityFeed);
+                    //elem.addEventListener("click", updateActivityFeed(currUser, songTitle));
                     // Check if song title, album title, or artist name includes the search term
                     if (
                         songTitle.includes(searchInput) ||
