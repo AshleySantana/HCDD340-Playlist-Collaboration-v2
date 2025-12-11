@@ -10,11 +10,17 @@ function toSearchPage(){
  function toHome(){
      window.location.href = "home.html"
  }
- // END OF NAV BAR
  
  function toExamplePlaylist(){
     window.location.href = "kpopExamplePlaylist.html"
  }
+
+ function toProfilePage(){
+  window.location.href = "profileLoggedIn.html"
+}
+ // END OF NAV BAR
+
+
  // List of songs 
  const albumsList = [
      {
