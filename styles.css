@@ -350,7 +350,10 @@ Henry: Styles for profile card/status */
 }
 
 .playlistTag {
-  padding: 5px;
+  padding: 8px;
+  margin-inline-start: 5px;
+  background-color: #f481a3;
+  border-radius: 10px;
 }
 
 .playlist-cover {
