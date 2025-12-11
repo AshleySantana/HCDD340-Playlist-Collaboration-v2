@@ -20,6 +20,21 @@ function toSearchPage(){
 }
  // END OF NAV BAR
 
+ 
+// Update activity feed w local storage
+/**
+ * Click add song to playlist in Search
+ * 
+ * On add song click, save song title of card
+ * 
+ * Key = "profile name"
+ * Value = "Song title"
+ * localStorage.setItem = (key, value)
+ * 
+ * Stringify local storage
+ * Refresh activity feed 
+ * Activity feed has new collaboration
+ */
 
  // List of songs 
  const albumsList = [
