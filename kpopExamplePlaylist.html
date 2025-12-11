@@ -19,7 +19,7 @@
           
             <div class="nav-right">
               <button id="homeBtn" onclick="toHome()">Home</button>
-              <button id="searchBtn" onclick="toSearch()">Search</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search</button>
               <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="createPlaylistsBtn">Add songs to Playlist</button>
             </div>
@@ -35,6 +35,22 @@
           <!-- Song cards container -->
           <div id="kpop-songs-list" class="songs-list"></div>
             <script>
+
+            /*NAV BAR*/
+            function toSearchPage(){
+            window.location.href = "search-song.html"
+            }
+            
+            function toLibraries(){
+                window.location.href = "libraries.html"
+            }
+            
+            function toHome(){
+                window.location.href = "home.html"
+            }
+
+            /*END NAVBAR*/ 
+            
             fetch('kpopSongsDb.json')
             .then(response => response.json())
             .then(data => {
