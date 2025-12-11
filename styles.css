@@ -326,6 +326,11 @@ Henry: Styles for profile card/status */
 
 /*Start example playlist styles*/
 
+#backLibrariesBtn {
+  padding: 5px;
+  margin: 10px;
+}
+
 .playlist-cover {
   width: 50%;
   height: 50%;   

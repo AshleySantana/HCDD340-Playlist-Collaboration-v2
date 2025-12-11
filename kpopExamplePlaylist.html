@@ -24,6 +24,10 @@
               <button id="createPlaylistsBtn">Add songs to Playlist</button>
             </div>
           </header>
+        <div>
+            <input type="image" id="backLibrariesBtn" onclick="toLibraries()" src="./images/kpop_playlist.jpg" onclick="toExamplePlaylist()"/>
+            <button id="backLibrariesBtn" onclick="toLibraries()">Back to Library</button>
+        </div>
 
         <div> 
             <container class="playlist-header">
@@ -50,7 +54,7 @@
             }
 
             /*END NAVBAR*/ 
-            
+
             fetch('kpopSongsDb.json')
             .then(response => response.json())
             .then(data => {
