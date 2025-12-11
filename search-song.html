@@ -16,7 +16,7 @@
             <div class="nav-right">
               <button id="homeBtn" onclick="toHome()">Home</button>
               <button id="searchBtn" onclick="toSearchPage()">Search</button>
-              <button id="librariesBtn" onclick="toLibraries()">Playlists</button>
+              <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="createPlaylistsBtn">Add songs to Playlist</button>
             </div>
           </header>
@@ -33,17 +33,20 @@
 
         <script>
 
+       //NAV BAR
         function toSearchPage(){
-          window.location.href = "search-song.html"
-        }
- 
-        function toPlaylists(){
-          window.location.href = "playlists.html"
+              window.location.href = "search-song.html"
         }
         
-        function toHome(){
-            window.location.href = "home.html"
+        function toLibraries(){
+              window.location.href = "libraries.html"
         }
+          
+        function toHome(){
+              window.location.href = "home.html"
+        }
+        
+        // END OF NAV BAR
 
         const albumsList = [
           {

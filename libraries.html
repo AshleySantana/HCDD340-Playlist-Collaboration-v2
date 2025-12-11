@@ -5,6 +5,8 @@
         <title>Home page</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="manifest" href="/manifest.json">
+        <script src="script.js" defer></script>
+
     </head>
     <body>
 
@@ -18,9 +20,9 @@
             </div>
           
             <div class="nav-right">
-              <button id="homeBtn" onclick="toHome()">Home button</button>
-              <button id="searchBtn" onclick="toSearch()">Search Button</button>
-              <button id="librariesBtn" onclick="toLibraries()">Playlists</button>
+              <button id="homeBtn" onclick="toHome()">Home</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search</button>
+              <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="createPlaylistsBtn">Add songs to Playlist</button>
             </div>
           </header>
@@ -32,7 +34,5 @@
           <input type="image" class="playlist-button" src="./images/hype.jpg" />
           <input type="image" class="playlist-button" src="./images/sad.jpg" />
         </div>
-
-        <script src="script.js"></script>
     </body>
 </html>
