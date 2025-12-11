@@ -26,8 +26,11 @@
         <input type="text" id="SearchSong"></input>
         <br></br>
         
-        <h2>Search Results</h2>
+        <h2>Search Results</h2>            
+        <input type="image" src="./images/add_circle.png" onclick="updateActivityFeed()"/>
+
         <section id="searchSongResults">
+
             <!-- Dynamic search results will be appended here -->
         </section>
 
@@ -47,6 +50,10 @@
         }
         
         // END OF NAV BAR
+
+        function updateActivityFeed(){
+            console.log("Updating feed")
+        }
 
         const albumsList = [
           {
@@ -151,7 +158,10 @@
 
                 album.songs.forEach(song => {
                     const songTitle = song.title.toLowerCase();
-
+                    elem = document.createElement("input");
+                    elem.type = "image";
+                    elem.src = "./images/add_circle.png";
+                    elem.addEventListener("click", updateActivityFeed);
                     // Check if song title, album title, or artist name includes the search term
                     if (
                         songTitle.includes(searchInput) ||
@@ -163,7 +173,7 @@
                         // Display the song details clearly
                         resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`; 
                         //add song button
-                    
+                        resultDiv.appendChild(elem)
                         resultsSection.appendChild(resultDiv);
                         foundResults = true;
                     }
