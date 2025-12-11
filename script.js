@@ -3,8 +3,8 @@ function toSearchPage(){
     window.location.href = "search-song.html"
  }
  
- function toPlaylists(){
-     window.location.href = "playlists.html"
+ function toLibraries(){
+     window.location.href = "libraries.html"
  }
  
  function toHome(){
