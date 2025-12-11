@@ -51,9 +51,11 @@
         
         // END OF NAV BAR
 
-        function updateActivityFeed(user, songTitle){
-            console.log(user + " added " + songTitle + " to CollaborativePlayist")
-            console.log("Updating feed")
+        function updateActivityFeed(songTitle){
+            user = localStorage.getItem("currUser");
+            localStorage.setItem("recentSong", songTitle);
+            currSong = localStorage.getItem("recentSong");
+            console.log(user + " added " + currSong + " to CollaborativePlayist");
         }
 
         const albumsList = [
@@ -159,10 +161,12 @@
 
                 album.songs.forEach(song => {
                     const songTitle = song.title.toLowerCase();
-                    elem = document.createElement("input");
-                    elem.type = "image";
-                    elem.src = "./images/add_circle.png";
-                    //elem.addEventListener("click", updateActivityFeed(currUser, songTitle));
+                    addBtn = document.createElement("input");
+                    addBtn.type = "image";
+                    addBtn.src = "./images/add_circle.png";
+                    addBtn.addEventListener("click", function() {
+                        updateActivityFeed(song.title)
+                    });
                     // Check if song title, album title, or artist name includes the search term
                     if (
                         songTitle.includes(searchInput) ||
@@ -174,7 +178,7 @@
                         // Display the song details clearly
                         resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`; 
                         //add song button
-                        resultDiv.appendChild(elem)
+                        resultDiv.appendChild(addBtn)
                         resultsSection.appendChild(resultDiv);
                         foundResults = true;
                     }
