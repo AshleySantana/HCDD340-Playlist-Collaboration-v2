@@ -12,6 +12,9 @@ function toSearchPage(){
  }
  // END OF NAV BAR
  
+ function toExamplePlaylist(){
+    window.location.href = "kpopExamplePlaylist.html"
+ }
  // List of songs 
  const albumsList = [
      {

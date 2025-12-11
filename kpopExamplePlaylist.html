@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kpop Playlist</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body>
+
+        <header class="navbar">
+            <div class="nav-left">
+              <a href="#" class="logo">MySite</a>
+            </div>
+          
+            <div class="nav-center">
+              <input type="text" placeholder="Search…" class="search-bar">
+            </div>
+          
+            <div class="nav-right">
+              <button id="homeBtn" onclick="toHome()">Home</button>
+              <button id="searchBtn" onclick="toSearchPage()">Search</button>
+              <button id="librariesBtn" onclick="toLibraries()">Library</button>
+              <button id="createPlaylistsBtn">Add songs to Playlist</button>
+            </div>
+          </header>
+        <div>
+            <input type="image" id="backLibrariesBtn" onclick="toLibraries()" src="./images/Arrow left-circle.png" onclick="toExamplePlaylist()"/>
+        </div>
+
+        <div> 
+            <container class="playlist-header">
+                <img class="playlist-cover" src="./images/kpop_playlist.jpg">
+                <h2 id="playlistName">Top K-Pop</h2>
+                <!-- TAGS -->
+                <div class="tagsDiv">
+                    <p class="playlistTag">#kpop</p>
+                    <p class="playlistTag">#happy</p>
+                    <p class="playlistTag">#hype</p>
+                    <p class="playlistTag">#uplifting</p>
+                </div>
+            </container>
+
+            <container class="addSongsMenu">
+                <button id="addSongsBtn">Add songs</button>
+            </container>
+        </div> 
+        
+          <!-- Song cards container -->
+          <div id="kpop-songs-list" class="songs-list"></div>
+            <script>
+
+            /*NAV BAR*/
+            function toSearchPage(){
+            window.location.href = "search-song.html"
+            }
+            
+            function toLibraries(){
+                window.location.href = "libraries.html"
+            }
+            
+            function toHome(){
+                window.location.href = "home.html"
+            }
+
+            /*END NAVBAR*/ 
+
+            fetch('kpopSongsDb.json')
+            .then(response => response.json())
+            .then(data => {
+              const list = document.getElementById('kpop-songs-list');
+              data.forEach(artist => {
+                artist.albums.forEach(album => {
+                  album.songs.forEach(song => {
+                    // Card HTML
+                    const card = document.createElement('div');
+                    card.className = 'song-card';
+                    card.innerHTML = `
+                      <div class="song-card-inner">
+                        <div class="song-title">${song.title}</div>
+
+                        <div class="song-card-right">
+                        <div class="song-album">${album.title}</div>
+                        
+                        <div class="song-artist">${artist.name}</div>
+                          
+                        </div>
+
+                        <div class="song-card-actions">
+                          <button class="play-btn" title="Play"><span>&#9654;</span></button>
+                          <button class="options-btn" title="More options"><span>&#8942;</span></button>
+                        </div>
+                      </div>
+                    `;
+                    list.appendChild(card);
+                  });
+                });
+              });
+            });
+            </script>
+    </body>
+</html>
