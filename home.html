@@ -3,17 +3,27 @@
     <head>
         <meta charset="utf-8">
         <title>Home page</title>
+
+        <!-- Link to external stylesheet -->
         <link rel="stylesheet" href="styles.css">
+
+        <!-- Manifest for PWA support -->
         <link rel="manifest" href="/manifest.json">
     </head>
+
     <body>
 
+        <!-- Top Navigation Bar -->
         <header class="navbar">
+
+            <!-- Left side: App logo/title -->
             <div class="nav-left">
               <a href="#" class="logo">PlayList Collaborator</a>
             </div>
           
+            <!-- Right side: Navigation buttons -->
             <div class="nav-right">
+              <!-- Onclick triggers navigation functions in script.js -->
               <button id="homeBtn" onclick="toHome()">Home</button>
               <button id="searchBtn" onclick="toSearchPage()">Search</button>
               <button id="librariesBtn" onclick="toLibraries()">Library</button>
@@ -22,18 +32,29 @@
         </header>
           
         <br>
+
+        <!-- Personalized greeting -->
         <h1>Welcome Jo!</h1>
         <br>
 
+        <!-- Page content wrapper -->
         <div class="wrapper">
+
+          <!-- Recent playlists section -->
           <div id="recentsWrapper">
             <h2>Recent playlists</h2>
+
+            <!-- Recent playlists will be dynamically populated here -->
             <div id="recentSongs"></div>
           </div>
+
           <br>
 
+          <!-- Activity feed section -->
           <div id="activityWrapper">
             <h2>Activity</h2>
+
+            <!-- Hardcoded activity items (could be dynamic later) -->
             <div id="activityFeed">
               <p>Eden invited you to: House party playlist</p>
               <p>Henry joined: House party playlist</p>
@@ -43,6 +64,7 @@
           </div>
         </div>
 
+        <!-- Link to JS file managing navigation + dynamic content -->
         <script src="script.js"></script>
     </body>
 </html>

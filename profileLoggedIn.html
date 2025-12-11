@@ -5,16 +5,56 @@
         <title>Profile Page</title>
         <link rel="stylesheet" href="styles.css">
         <link rel="manifest" href="/manifest.json">
+
         <style>
-            .my-playlists-wrapper{ max-width:900px; margin:0 auto; padding:12px; display:flex; align-items:stretch; gap:12px; }
-            .playlists-container{ display:flex; gap:12px; overflow-x:hidden; flex:1; }
-            .playlist-square{ width:120px; height:120px; background:#ffffff; border:2px solid var(--mid-grey); border-radius:8px; flex-shrink:0; cursor:pointer; }
-            .scroll-btn{ background:var(--dark-purple); color:var(--white); border:none; padding:0 16px; border-radius:6px; cursor:pointer; font-size:20px; }
-            .scroll-btn:hover{ opacity:0.8; }
+            /* Container for the “My Playlists” horizontal scroll section */
+            .my-playlists-wrapper {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 12px;
+                display: flex;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            /* The horizontal list of playlist squares */
+            .playlists-container {
+                display: flex;
+                gap: 12px;
+                overflow-x: hidden;  /* Prevents scrollbars from showing */
+                flex: 1;
+            }
+
+            /* Each playlist placeholder square */
+            .playlist-square {
+                width: 120px;
+                height: 120px;
+                background: #ffffff;
+                border: 2px solid var(--mid-grey);
+                border-radius: 8px;
+                flex-shrink: 0;      /* Prevents shrinking when scrolling */
+                cursor: pointer;
+            }
+
+            /* Arrow buttons for scrolling left/right */
+            .scroll-btn {
+                background: var(--dark-purple);
+                color: var(--white);
+                border: none;
+                padding: 0 16px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 20px;
+            }
+            .scroll-btn:hover {
+                opacity: 0.8;
+            }
         </style>
     </head>
+
     <body>
         
+        <!-- Top Navigation Bar -->
         <header class="navbar">
             <div class="nav-left">
               <a href="#" class="logo">PlayList Collaborator</a>
@@ -26,18 +66,27 @@
               <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="profileBtn" onclick="toProfilePage()">Profile</button>
             </div>
-          </header>
+        </header>
 
-        <h1 style ="text-align: center;">Profile</h1>
+        <!-- Page Title -->
+        <h1 style="text-align: center;">Profile</h1>
 
+        <!-- Profile Card Section -->
         <section class="profile-card hcd-profile-card">
+
+          <!-- Profile Avatar -->
           <div class="profile-avatar">
             <img src="images/user_icon.jpg" alt="Profile picture" id="profilePic">
+            <!-- Shows colored dot (online/away/busy/offline) -->
             <span class="status-indicator" id="statusIndicator" data-status="online" title="Online"></span>
             <span class="pic-edit-text">Change Profile Picture</span>
           </div>
+
+          <!-- Right-side profile information -->
           <div class="profile-info">
             <h2 id="profileName">Your Name</h2>
+
+            <!-- Status dropdown selector -->
             <div class="status-row">
               <span id="statusLabel" class="status-label">Online</span>
               <label for="statusSelect" class="sr-only">Set status</label>
@@ -48,6 +97,8 @@
                 <option value="offline">Offline</option>
               </select>
             </div>
+
+            <!-- Followers + Following stats -->
             <div class="follow-stats">
               <span>Followers: <strong id="followersCount">0</strong></span>
               <span>Following: <strong id="followingCount">0</strong></span>
@@ -55,10 +106,24 @@
           </div>
         </section>
 
+        <!-- "My Playlists" Section -->
         <div style="max-width:900px; margin:24px auto;">
-          <button onclick="window.location.href='playlists.html'" style="background:none; border:none; cursor:pointer; padding:0; margin:0 0 12px 0;"><h2 style="margin:0; color:var(--dark-grey); text-align:left;">My Playlists</h2></button>
+
+          <!-- Clickable header that navigates to playlist page -->
+          <button 
+            onclick="window.location.href='playlists.html'" 
+            style="background:none; border:none; cursor:pointer; padding:0; margin:0 0 12px 0;"
+          >
+            <h2 style="margin:0; color:var(--dark-grey); text-align:left;">My Playlists</h2>
+          </button>
+
+          <!-- Scrollable playlist previews -->
           <div class="my-playlists-wrapper">
+
+            <!-- Scroll left button -->
             <button class="scroll-btn" id="scrollLeft" onclick="scrollPlaylists(-1)">←</button>
+
+            <!-- Container holding playlist squares -->
             <div class="playlists-container" id="playlistsContainer">
               <div class="playlist-square"></div>
               <div class="playlist-square"></div>
@@ -67,16 +132,27 @@
               <div class="playlist-square"></div>
               <div class="playlist-square"></div>
             </div>
+
+            <!-- Scroll right button -->
             <button class="scroll-btn" id="scrollRight" onclick="scrollPlaylists(1)">→</button>
           </div>
         </div>
 
+        <!-- JS controlling the profile status & general navigation -->
         <script src="status.js"></script>
         <script src="script.js"></script>
+
         <script>
+            /**
+             * Scrolls the playlist container left or right
+             * @param {number} direction -1 for left, +1 for right
+             */
             function scrollPlaylists(direction) {
                 const container = document.getElementById('playlistsContainer');
-                const scrollAmount = 140; // 120px square + 12px gap + 8px buffer
+                
+                // Amount to scroll each time (square size + spacing)
+                const scrollAmount = 140;
+
                 container.scrollLeft += direction * scrollAmount;
             }
         </script>

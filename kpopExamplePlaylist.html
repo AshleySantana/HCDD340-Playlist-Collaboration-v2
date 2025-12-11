@@ -3,32 +3,58 @@
     <head>
         <meta charset="utf-8">
         <title>Kpop Playlist</title>
+
+        <!-- Link to global stylesheet -->
         <link rel="stylesheet" href="styles.css">
+
+        <!-- PWA Manifest (optional for app-like behavior) -->
         <link rel="manifest" href="/manifest.json">
     </head>
+
     <body>
 
+        <!-- --------------------------------------- -->
+        <!-- TOP NAVIGATION BAR -->
+        <!-- --------------------------------------- -->
         <header class="navbar">
             <div class="nav-left">
               <a href="#" class="logo">PlayList Collaborator</a>
             </div>
           
+            <!-- Navigation buttons -->
             <div class="nav-right">
               <button id="homeBtn" onclick="toHome()">Home</button>
               <button id="searchBtn" onclick="toSearchPage()">Search</button>
               <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="profileBtn" onclick="toProfilePage()">Profile</button>
             </div>
-          </header>
+        </header>
+
+        <!-- Back button (returns to library page) -->
         <div>
-            <input type="image" id="backLibrariesBtn" onclick="toLibraries()" src="./images/Arrow left-circle.png" onclick="toExamplePlaylist()"/>
+            <input 
+                type="image" 
+                id="backLibrariesBtn" 
+                onclick="toLibraries()" 
+                src="./images/Arrow left-circle.png"
+            />
         </div>
 
+
+        <!-- --------------------------------------- -->
+        <!-- PLAYLIST HEADER -->
+        <!-- Contains playlist name, cover image, tags -->
+        <!-- --------------------------------------- -->
         <div> 
             <container class="playlist-header">
+
+                <!-- Playlist cover image -->
                 <img class="playlist-cover" src="./images/kpop_playlist.jpg">
+
+                <!-- Playlist title -->
                 <h2 id="playlistName">Top K-Pop</h2>
-                <!-- TAGS -->
+
+                <!-- Playlist tags -->
                 <div class="tagsDiv">
                     <p class="playlistTag">#kpop</p>
                     <p class="playlistTag">#happy</p>
@@ -37,67 +63,114 @@
                 </div>
             </container>
 
+            <!-- Add-song button section -->
             <container class="addSongsMenu">
                 <button id="addSongsBtn">Add songs</button>
             </container>
         </div> 
         
-          <!-- Song cards container -->
-          <div id="kpop-songs-list" class="songs-list"></div>
-            <script>
 
-            /*NAV BAR*/
-            function toSearchPage(){
-            window.location.href = "search-song.html"
-            }
-            
-            function toLibraries(){
-                window.location.href = "libraries.html"
-            }
-            
-            function toHome(){
-                window.location.href = "home.html"
+        <!-- --------------------------------------- -->
+        <!-- SONG LIST CONTAINER -->
+        <!-- Songs from JSON will be dynamically inserted here -->
+        <!-- --------------------------------------- -->
+        <div id="kpop-songs-list" class="songs-list"></div>
+
+
+        <!-- --------------------------------------- -->
+        <!-- JAVASCRIPT -->
+        <!-- --------------------------------------- -->
+        <script>
+
+            /* --------------------------- */
+            /* NAV BAR PAGE REDIRECTS */
+            /* --------------------------- */
+
+            // Navigate to Search Page
+            function toSearchPage() {
+                window.location.href = "search-song.html";
             }
 
-            function toProfilePage(){
-              window.location.href = "profileLoggedIn.html"
+            // Navigate to Library Page
+            function toLibraries() {
+                window.location.href = "libraries.html";
             }
-            
 
-            /*END NAVBAR*/ 
+            // Navigate to Home Page
+            function toHome() {
+                window.location.href = "home.html";
+            }
 
-            fetch('kpopSongsDb.json')
+            // Navigate to User Profile Page
+            function toProfilePage() {
+                window.location.href = "profileLoggedIn.html";
+            }
+
+            /* --------------------------- */
+            /* END NAV BAR */
+            /* --------------------------- */
+
+
+            /* --------------------------------------------------------- */
+            /* FETCH KPOP SONG DATA FROM JSON FILE                        */
+            /* Builds song cards dynamically based on external JSON data  */
+            /* --------------------------------------------------------- */
+
+            fetch('kpopSongsDb.json')        // Load JSON file
             .then(response => response.json())
             .then(data => {
+
               const list = document.getElementById('kpop-songs-list');
+
+              // Loop through artists in dataset
               data.forEach(artist => {
+                
+                // Loop through each album the artist has
                 artist.albums.forEach(album => {
+                  
+                  // Loop through each song in the album
                   album.songs.forEach(song => {
-                    // Card HTML
+
+                    /* ----------------------------- */
+                    /* Create individual song card   */
+                    /* ----------------------------- */
                     const card = document.createElement('div');
                     card.className = 'song-card';
+
+                    // Song card HTML structure
                     card.innerHTML = `
                       <div class="song-card-inner">
+
+                        <!-- Song Title -->
                         <div class="song-title">${song.title}</div>
 
+                        <!-- Right side includes album + artist -->
                         <div class="song-card-right">
-                        <div class="song-album">${album.title}</div>
-                        
-                        <div class="song-artist">${artist.name}</div>
-                          
+                          <div class="song-album">${album.title}</div>
+                          <div class="song-artist">${artist.name}</div>
                         </div>
 
+                        <!-- Play + Options icons -->
                         <div class="song-card-actions">
-                          <button class="play-btn" title="Play"><span>&#9654;</span></button>
-                          <button class="options-btn" title="More options"><span>&#8942;</span></button>
+                          <button class="play-btn" title="Play">
+                            <span>&#9654;</span>
+                          </button>
+                          <button class="options-btn" title="More options">
+                            <span>&#8942;</span>
+                          </button>
                         </div>
+
                       </div>
                     `;
+
+                    // Add card to list container
                     list.appendChild(card);
                   });
                 });
               });
-            });
-            </script>
+
+            }); // End fetch
+        </script>
+
     </body>
 </html>

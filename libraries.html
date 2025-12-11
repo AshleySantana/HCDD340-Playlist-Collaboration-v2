@@ -3,32 +3,85 @@
     <head>
         <meta charset="utf-8">
         <title>Library</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="manifest" href="/manifest.json">
-        <script src="script.js" defer></script>
 
+        <!-- Main stylesheet -->
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- PWA manifest (optional for app install behavior) -->
+        <link rel="manifest" href="/manifest.json">
+
+        <!-- Main JavaScript for navigation + functionality -->
+        <script src="script.js" defer></script>
     </head>
+
     <body>
 
+        <!-- ----------------------------------------------- -->
+        <!-- TOP NAVIGATION BAR                              -->
+        <!-- Contains links to Home, Search, Library, Profile -->
+        <!-- ----------------------------------------------- -->
         <header class="navbar">
             <div class="nav-left">
+              <!-- App logo / brand -->
               <a href="#" class="logo">PlayList Collaborator</a>
             </div>
           
             <div class="nav-right">
+              <!-- Navigation buttons -->
               <button id="homeBtn" onclick="toHome()">Home</button>
               <button id="searchBtn" onclick="toSearchPage()">Search</button>
               <button id="librariesBtn" onclick="toLibraries()">Library</button>
               <button id="profileBtn" onclick="toProfilePage()">Profile</button>
             </div>
-          </header>
-          
+        </header>
+        
+
+        <!-- ----------------------------------------------- -->
+        <!-- PAGE TITLE                                      -->
+        <!-- ----------------------------------------------- -->
         <h1>Your Library</h1>
+
+
+        <!-- ----------------------------------------------- -->
+        <!-- PLAYLIST SELECTION GRID                         -->
+        <!-- Each image acts as a button that opens a playlist -->
+        <!-- ----------------------------------------------- -->
         <div class="playlist-selection">
-          <input type="image" class="playlist-button" src="./images/kpop_playlist.jpg" alt="KPOP Demon Hunters Album Photo" onclick="toExamplePlaylist()"/>
-          <input type="image" class="playlist-button" src="./images/rnb.jpg" alt="rnb Playlist photo"/>
-          <input type="image" class="playlist-button" src="./images/hype.jpg" alt="hype Playlist photo"/>
-          <input type="image" class="playlist-button" src="./images/sad.jpg" alt="sad Playlist photo"/>
+
+          <!-- Playlist: K-Pop (navigates to example playlist) -->
+          <input 
+            type="image" 
+            class="playlist-button" 
+            src="./images/kpop_playlist.jpg" 
+            alt="KPOP Demon Hunters Album Photo" 
+            onclick="toExamplePlaylist()"
+          />
+
+          <!-- Playlist: R&B -->
+          <input 
+            type="image" 
+            class="playlist-button" 
+            src="./images/rnb.jpg" 
+            alt="R&B Playlist cover photo"
+          />
+
+          <!-- Playlist: Hype -->
+          <input 
+            type="image" 
+            class="playlist-button" 
+            src="./images/hype.jpg" 
+            alt="Hype Playlist cover photo"
+          />
+
+          <!-- Playlist: Sad -->
+          <input 
+            type="image" 
+            class="playlist-button" 
+            src="./images/sad.jpg" 
+            alt="Sad Playlist cover photo"
+          />
+
         </div>
+
     </body>
 </html>
