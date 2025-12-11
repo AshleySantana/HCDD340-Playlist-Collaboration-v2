@@ -10,6 +10,17 @@
     background-color: var(--light-purple);
 }
 
+/* <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name
+*/
+
+.league-spartan-font {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
 /* NAVBAR container */
 .navbar {
     position: fixed;
@@ -350,7 +361,10 @@ Henry: Styles for profile card/status */
 }
 
 .playlistTag {
-  padding: 5px;
+  padding: 8px;
+  margin-inline-start: 5px;
+  background-color: #f481a3;
+  border-radius: 10px;
 }
 
 .playlist-cover {
