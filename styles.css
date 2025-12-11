@@ -323,3 +323,83 @@ Henry: Styles for profile card/status */
 }
 
 /*End libraries*/
+
+/*Start example playlist styles*/
+
+.playlist-cover {
+  width: 50%;
+  height: 50%;   
+  max-width: 300px;
+  max-height: 300px;
+  background-size: cover;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.playlist-header {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  font-size: 95%;
+}
+
+.playlist-cover {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.playlist-header h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.songs-list {
+  display: flex; 
+  flex-direction: column;
+  flex-wrap: nowrap; 
+  overflow-x: auto;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 75%;
+}
+  
+
+.song-card {
+  background-color: #dfd3f8;
+  border-radius: 5px;
+  margin: 3px;
+  padding: 10px;
+}
+
+.song-card-inner {
+  display: flex ;
+  align-items: center;
+}
+
+
+.song-title {
+  margin-right: 20px;
+}
+
+.song-card-right {
+    /* Pushes this entire container to the far right */
+    margin-left: auto; 
+    /* Makes the right content flex as well, aligning info and actions */
+    display: flex;
+    align-items: center;
+}
+
+.song-album {
+  margin: 10px;
+}
+
+.song-artist {
+  margin: 10px;
+}
+
+/*End example playlist styles*/
