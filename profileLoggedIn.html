@@ -52,7 +52,7 @@
         </style>
     </head>
 
-    <body>
+    <body onload="loadUsername()">
         
         <!-- Top Navigation Bar -->
         <header class="navbar">
@@ -84,7 +84,7 @@
 
           <!-- Right-side profile information -->
           <div class="profile-info">
-            <h2 id="profileName">Your Name</h2>
+            <h2><span id="userNamePlaceholder">Guest</span></h2>
 
             <!-- Status dropdown selector -->
             <div class="status-row">

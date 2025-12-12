@@ -40,6 +40,12 @@ function toProfilePage() {
  * Activity feed has new collaboration
  */
 
+function loadUsername() {
+  username = document.querySelector("#userNamePlaceholder");
+  currLogIn = localStorage.getItem("currUser");
+  username.innerHTML = currLogIn;
+}
+
 function saveUsername() {
   window.location.href='home.html';
   username = document.querySelector("#username").value;
