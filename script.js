@@ -1,22 +1,26 @@
-//NAV BAR
-function toSearchPage(){
-    window.location.href = "search-song.html"
- }
- 
- function toLibraries(){
-     window.location.href = "libraries.html"
- }
- 
- function toHome(){
-     window.location.href = "home.html"
- }
- 
- function toExamplePlaylist(){
-    window.location.href = "kpopExamplePlaylist.html"
- }
+// ----------------------
+// NAVIGATION FUNCTIONS
+// ----------------------
+// These functions redirect the user to different pages when called.
 
- function toProfilePage(){
-  window.location.href = "profileLoggedIn.html"
+function toSearchPage() {
+  window.location.href = "search-song.html";
+}
+
+function toLibraries() {
+  window.location.href = "libraries.html";
+}
+
+function toHome() {
+  window.location.href = "home.html";
+}
+
+function toExamplePlaylist() {
+  window.location.href = "kpopExamplePlaylist.html";
+}
+
+function toProfilePage() {
+  window.location.href = "profileLoggedIn.html";
 }
  // END OF NAV BAR
 

@@ -3,21 +3,105 @@
     <head>
         <meta charset="utf-8">
         <title>Create an Account</title>
+
+        <!-- Main shared styling for the whole project -->
         <link rel="stylesheet" href="styles.css">
+
+        <!-- PWA manifest -->
         <link rel="manifest" href="/manifest.json">
+
         <meta name="viewport" content="width=device-width,initial-scale=1">
+
         <style>
-            /* span almost full width with small gutters, left-aligned contents */
-            .create-account-card{ max-width:none; width:calc(100% - 48px); margin:12px 24px; display:flex; flex-direction:column; gap:6px; padding:10px 12px; box-sizing:border-box; }
-            .create-account-card form{ display:flex; flex-direction:column; gap:6px; align-items:flex-start; }
-            .form-control label{ display:block; font-weight:600; color:var(--dark-grey); margin-bottom:6px; font-size:0.95rem }
-            .form-control input{ width:100%; padding:7px 10px; border-radius:8px; border:1px solid var(--mid-grey); box-sizing:border-box; }
-            .form-row{ display:flex; gap:10px; }
-            .form-row .form-control{ flex:1 }
-            .submit-btn{ background:var(--violet-purple); color:var(--white); padding:8px 12px; border-radius:8px; border:none; font-weight:700; cursor:pointer }
-            .small-note{ font-size:0.85rem; color:var(--muted); }
-            @media (max-width:800px){ .create-account-card{ width:calc(100% - 32px); margin:10px 16px; } }
-            @media (max-width:520px){ .create-account-card{ margin:12px; } .form-row{ flex-direction:column } }
+            /* 
+            ==========================================================
+            CREATE ACCOUNT PAGE LAYOUT
+            ==========================================================
+            */
+
+            /* Main card wrapper: nearly full-width, centered, left-aligned text */
+            .create-account-card {
+                max-width: none;
+                width: calc(100% - 48px);
+                margin: 12px 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                padding: 10px 12px;
+                box-sizing: border-box;
+            }
+
+            /* Form layout: stacked fields, aligned left */
+            .create-account-card form {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                align-items: flex-start;
+            }
+
+            /* Label and input styling */
+            .form-control label {
+                display: block;
+                font-weight: 600;
+                color: var(--dark-grey);
+                margin-bottom: 6px;
+                font-size: 0.95rem;
+            }
+
+            .form-control input {
+                width: 100%;
+                padding: 7px 10px;
+                border-radius: 8px;
+                border: 1px solid var(--mid-grey);
+                box-sizing: border-box;
+            }
+
+            /* Two-column row for elements like name/password */
+            .form-row {
+                display: flex;
+                gap: 10px;
+            }
+
+            .form-row .form-control {
+                flex: 1;
+            }
+
+            /* Submit button styling */
+            .submit-btn {
+                background: var(--violet-purple);
+                color: var(--white);
+                padding: 8px 12px;
+                border-radius: 8px;
+                border: none;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            /* Muted note text */
+            .small-note {
+                font-size: 0.85rem;
+                color: var(--muted);
+            }
+
+            /* Responsive behavior for tablet */
+            @media (max-width: 800px) {
+                .create-account-card {
+                    width: calc(100% - 32px);
+                    margin: 10px 16px;
+                }
+            }
+
+            /* Responsive behavior for mobile */
+            @media (max-width: 520px) {
+                .create-account-card {
+                    margin: 12px;
+                }
+
+                /* Form becomes single-column on small screens */
+                .form-row {
+                    flex-direction: column;
+                }
+            }
         </style>
     </head>
     <body onload=localStorage.clear()>
@@ -27,50 +111,65 @@
             </div>
 
             <div class="nav-right">
-              <button id="homeBtn" onclick="toHome()">Home</button>
-              <button id="searchBtn" onclick="toSearchPage()">Search</button>
-              <button id="librariesBtn" onclick="toLibraries()">Library</button>
-              <button id="profileBtn" onclick="toProfilePage()">Profile</button>
+                <button id="homeBtn" onclick="toHome()">Home</button>
+                <button id="searchBtn" onclick="toSearchPage()">Search</button>
+                <button id="librariesBtn" onclick="toLibraries()">Library</button>
+                <button id="profileBtn" onclick="toProfilePage()">Profile</button>
             </div>
         </header>
 
+        <!-- Page title -->
         <h1 style="text-align:center;">Create an Account</h1>
 
-        <section class="hcd-profile-card create-account-card" aria-labelledby="createAccountHeading">
+        <!-- Main sign-up form card -->
+        <section 
+            class="hcd-profile-card create-account-card" 
+            aria-labelledby="createAccountHeading"
+        >
             <h2 id="createAccountHeading" style="margin:0 0 6px 0;">Sign up</h2>
+
+            <!-- Sign-up form (visual only) -->
             <form aria-label="Create account form">
+
+                <!-- Full name + Username -->
                 <div class="form-row">
                     <div class="form-control">
                         <label for="fullName">Full name</label>
                         <input id="fullName" name="fullName" type="text" placeholder="Jane Doe">
                     </div>
+
                     <div class="form-control">
                         <label for="username">Username</label>
                         <input id="username" name="username" type="text" placeholder="janedoe">
                     </div>
                 </div>
 
+                <!-- Email field -->
                 <div class="form-control">
                     <label for="email">Email</label>
                     <input id="email" name="email" type="email" placeholder="you@example.com">
                 </div>
 
+                <!-- Password + Confirm password -->
                 <div class="form-row">
                     <div class="form-control">
                         <label for="password">Password</label>
                         <input id="password" name="password" type="password" placeholder="Create a password">
                     </div>
+
                     <div class="form-control">
                         <label for="confirmPassword">Confirm password</label>
                         <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Re-enter password">
                     </div>
                 </div>
 
+                <!-- Optional short bio -->
                 <div class="form-control">
                     <label for="bio">Short bio</label>
                     <input id="bio" name="bio" type="text" placeholder="Tell others a bit about you (optional)">
                 </div>
 
+                <!-- Button row -->
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
                     <!-- <span class="small-note">This form is visual only — not functional.</span> -->
                     <button type="button" class="submit-btn" onclick="saveUsername()">Create account</button>
@@ -78,7 +177,9 @@
             </form>
         </section>
 
+        <!-- Script for profile status logic & navigation handlers -->
         <script src="status.js"></script>
         <script src="script.js"></script>
+
     </body>
 </html>
