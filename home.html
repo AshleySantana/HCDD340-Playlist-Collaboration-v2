@@ -10,8 +10,7 @@
         <!-- Manifest for PWA support -->
         <link rel="manifest" href="/manifest.json">
     </head>
-
-    <body>
+    <body onload="updateActivityFeed()">
 
         <!-- Top Navigation Bar -->
         <header class="navbar">
@@ -56,10 +55,6 @@
 
             <!-- Hardcoded activity items (could be dynamic later) -->
             <div id="activityFeed">
-              <p>Eden invited you to: House party playlist</p>
-              <p>Henry joined: House party playlist</p>
-              <p>Ashley added songs: Creep by Radiohead</p>
-              <p>Ashley voted on: Golden by KPOP Demon Hunters</p>
             </div>
           </div>
         </div>

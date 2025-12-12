@@ -176,19 +176,6 @@ body {
 }
 /* END OF HOME PAGE STYLING */
 
-/*START SEARCH SONG STYLING*/
-#searchResults {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: var(--light-purple);
-    border: 1px solid var(--mid-grey);
-    border-radius: 8px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-/*END SEARCH SONG STYLING*/
-
 /* 
 Henry: Styles for profile card/status */
 .wrapper{ max-width:900px; margin: 12px auto; padding: 12px; }
@@ -265,6 +252,16 @@ Henry: Styles for profile card/status */
 
 /*Start search song styles*/
 
+#searchResults {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--light-purple);
+    border: 1px solid var(--mid-grey);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .search-result {
   font-size: 18px;
   background-color: #1D0B15;
@@ -272,6 +269,12 @@ Henry: Styles for profile card/status */
   margin: 5px;
   border-radius: 5px;
   padding: 15px;  
+
+  input {
+    position: relative;
+    float: right;
+    bottom: 11px;
+  }
 }
 
 #SearchSong {

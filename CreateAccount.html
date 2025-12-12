@@ -104,15 +104,12 @@
             }
         </style>
     </head>
-
-    <body>
-
-        <!-- Top navigation bar reused across the site -->
+    <body onload=localStorage.clear()>
         <header class="navbar">
             <div class="nav-left">
-                <a href="#" class="logo">PlayList Collaborator</a>
+              <a href="#" class="logo">PlayList Collaborator</a>
             </div>
-            
+
             <div class="nav-right">
                 <button id="homeBtn" onclick="toHome()">Home</button>
                 <button id="searchBtn" onclick="toSearchPage()">Search</button>
@@ -174,14 +171,8 @@
 
                 <!-- Button row -->
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-                    <!-- Form submit (currently just redirects to home page) -->
-                    <button 
-                        type="button" 
-                        class="submit-btn" 
-                        onclick="location.href='home.html'"
-                    >
-                        Create account
-                    </button>
+                    <!-- <span class="small-note">This form is visual only — not functional.</span> -->
+                    <button type="button" class="submit-btn" onclick="saveUsername()">Create account</button>
                 </div>
             </form>
         </section>

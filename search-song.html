@@ -86,6 +86,14 @@
           Used for searching song, artist, and album names locally.
         ======================================================== */
 
+        function updateActivityFeed(songTitle){
+            user = localStorage.getItem("currUser");
+            currSong = songTitle;
+            songsAdded = localStorage.getItem("songsAdded");
+            newSongs = songsAdded + ", " + currSong;
+            localStorage.setItem("songsAdded", newSongs);
+        }
+
         const albumsList = [
           {
             title: "The King of Limbs",
@@ -184,42 +192,48 @@
               const initialMessage = document.createElement("p");
               initialMessage.textContent = "Start typing above to see search results.";
               resultsSection.appendChild(initialMessage);
-              return;
-          }
+              return; // Stop execution if no search term
+            }
 
-          let foundResults = false;
+            let foundResults = false;
 
-          // Loop through albums, artists, and songs
-          albumsList.forEach(album => {
-              const albumTitle = album.title.toLowerCase();
-              const artistName = album.artist.toLowerCase();
+            // 3. Loop through the data to find matches
+            albumsList.forEach(album => {
+                const albumTitle = album.title.toLowerCase();
+                const artistName = album.artist.toLowerCase();
 
-              album.songs.forEach(song => {
-                  const songTitle = song.title.toLowerCase();
+                album.songs.forEach(song => {
+                    const songTitle = song.title.toLowerCase();
+                    addBtn = document.createElement("input");
+                    addBtn.type = "image";
+                    addBtn.src = "./images/add_circle.png";
+                    addBtn.addEventListener("click", function() {
+                        updateActivityFeed(song.title)
+                    });
+                    // Check if song title, album title, or artist name includes the search term
+                    if (
+                        songTitle.includes(searchInput) ||
+                        albumTitle.includes(searchInput) ||
+                        artistName.includes(searchInput)
+                    ) {
+                        const resultDiv = document.createElement("div");
+                        resultDiv.className = 'search-result';
+                        // Display the song details clearly
+                        resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`; 
+                        //add song button
+                        resultDiv.appendChild(addBtn)
+                        resultsSection.appendChild(resultDiv);
+                        foundResults = true;
+                    }
+                });
+            });
 
-                  // Match search term to song, artist, or album
-                  if (
-                      songTitle.includes(searchInput) ||
-                      albumTitle.includes(searchInput) ||
-                      artistName.includes(searchInput)
-                  ) {
-                      // Build a result item
-                      const resultDiv = document.createElement("div");
-                      resultDiv.className = 'search-result';
-                      resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`;
-
-                      // Add to results area
-                      resultsSection.appendChild(resultDiv);
-                      foundResults = true;
-                  }
-              });
-          });
-
-          // If nothing matched, show a message
-          if (!foundResults) {
-              const noResults = document.createElement("p");
-              noResults.textContent = `No songs, albums, or artists found for "${inputEl.value}".`;
-              resultsSection.appendChild(noResults);
+            // 4. Display a message if no results were found
+            if (!foundResults) {
+                const noResults = document.createElement("p");
+                noResults.textContent = `No songs, albums, or artists found for "${inputEl.value}".`;
+                resultsSection.appendChild(noResults);
+            }
           }
         }
 
