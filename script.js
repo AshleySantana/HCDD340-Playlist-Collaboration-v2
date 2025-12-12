@@ -42,6 +42,23 @@ function saveUsername() {
   localStorage.setItem("currUser", username);
 }
 
+function updateActivityFeed() {
+  user = localStorage.getItem("currUser");
+  activityFeed = document.querySelector("#activityFeed");
+  songs = localStorage.getItem("songsAdded").split(",");
+  console.log(songs);
+  activity = document.createElement("div");
+  songs.forEach(song => {
+    if (song != "null"){
+      songAdd = document.createElement("p");
+      str = `${user} added ${song} to CollaborativePlaylist.`;
+      songAdd.innerHTML = str;
+      activity.appendChild(songAdd);
+    }
+  })
+  activityFeed.appendChild(activity)
+}
+
  // List of songs 
  const albumsList = [
      {

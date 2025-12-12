@@ -53,9 +53,10 @@
 
         function updateActivityFeed(songTitle){
             user = localStorage.getItem("currUser");
-            localStorage.setItem("recentSong", songTitle);
-            currSong = localStorage.getItem("recentSong");
-            console.log(user + " added " + currSong + " to CollaborativePlayist");
+            currSong = songTitle;
+            songsAdded = localStorage.getItem("songsAdded");
+            newSongs = songsAdded + ", " + currSong;
+            localStorage.setItem("songsAdded", newSongs);
         }
 
         const albumsList = [
