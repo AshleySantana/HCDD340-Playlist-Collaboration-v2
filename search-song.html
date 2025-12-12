@@ -198,12 +198,17 @@
             let foundResults = false;
 
             // 3. Loop through the data to find matches
+            //for each album in the list
             albumsList.forEach(album => {
                 const albumTitle = album.title.toLowerCase();
                 const artistName = album.artist.toLowerCase();
-
+                
+                //for each song in an album 
                 album.songs.forEach(song => {
                     const songTitle = song.title.toLowerCase();
+
+                    //create add song button and add event listener when the button on this particular button is clicked 
+                    //within a song div
                     addBtn = document.createElement("input");
                     addBtn.type = "image";
                     addBtn.src = "./images/add_circle.png";
@@ -216,12 +221,14 @@
                         albumTitle.includes(searchInput) ||
                         artistName.includes(searchInput)
                     ) {
+                        //create a new div to contain the song details
                         const resultDiv = document.createElement("div");
                         resultDiv.className = 'search-result';
                         // Display the song details clearly
                         resultDiv.textContent = `${song.title} — ${album.artist} • ${album.title}`; 
-                        //add song button
+                        //append add song button to the song div
                         resultDiv.appendChild(addBtn)
+                        //append the complete song div to the results section
                         resultsSection.appendChild(resultDiv);
                         foundResults = true;
                     }
