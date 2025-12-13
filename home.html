@@ -10,6 +10,8 @@
         <!-- Manifest for PWA support -->
         <link rel="manifest" href="/manifest.json">
     </head>
+
+    <!-- On page load, update username display and playlist activity-->
     <body onload="loadHome()">
 
         <!-- Top Navigation Bar -->
@@ -53,7 +55,7 @@
           <div id="activityWrapper">
             <h2>Activity</h2>
 
-            <!-- Hardcoded activity items (could be dynamic later) -->
+            <!-- Dynamic activity feed that updates on load -->
             <div id="activityFeed">
             </div>
           </div>
