@@ -24,32 +24,35 @@ function toProfilePage() {
 }
  // END OF NAV BAR
 
-
-// Update activity feed w local storage
-
+//loads the current username into greeting and updates activity feed on each home page load
 function loadHome() {
   loadHomeUser();
   updateActivityFeed();
 }
 
+//Updates greeting on home page to be current user logged in 
 function loadHomeUser() {
   username = document.querySelector("#currUser");
   currLogIn = localStorage.getItem("currUser");
   username.innerHTML = currLogIn;
 }
 
+//loads username on profile logged in page
 function loadUsername() {
   username = document.querySelector("#userNamePlaceholder");
   currLogIn = localStorage.getItem("currUser");
   username.innerHTML = currLogIn;
 }
 
+//every time a new user creates an account, the username gets saved to local storage
 function saveUsername() {
   window.location.href='home.html';
   username = document.querySelector("#username").value;
   localStorage.setItem("currUser", username);
 }
 
+//updates home page activity feed everytime the user clicks the plus button on search song page to add to a playlist
+//uses current username from local storage dynamically
 function updateActivityFeed() {
   user = localStorage.getItem("currUser");
   activityFeed = document.querySelector("#activityFeed");
