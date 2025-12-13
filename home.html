@@ -10,7 +10,7 @@
         <!-- Manifest for PWA support -->
         <link rel="manifest" href="/manifest.json">
     </head>
-    <body onload="updateActivityFeed()">
+    <body onload="loadHome()">
 
         <!-- Top Navigation Bar -->
         <header class="navbar">
@@ -33,7 +33,7 @@
         <br>
 
         <!-- Personalized greeting -->
-        <h1>Welcome Jo!</h1>
+        <h1>Welcome <span id="currUser"></span></h1>
         <br>
 
         <!-- Page content wrapper -->

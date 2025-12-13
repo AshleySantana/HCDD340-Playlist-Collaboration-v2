@@ -26,19 +26,17 @@ function toProfilePage() {
 
 
 // Update activity feed w local storage
-/**
- * Click add song to playlist in Search
- * 
- * On add song click, save song title of card
- * 
- * Key = "profile name"
- * Value = "Song title"
- * localStorage.setItem = (key, value)
- * 
- * Stringify local storage
- * Refresh activity feed 
- * Activity feed has new collaboration
- */
+
+function loadHome() {
+  loadHomeUser();
+  updateActivityFeed();
+}
+
+function loadHomeUser() {
+  username = document.querySelector("#currUser");
+  currLogIn = localStorage.getItem("currUser");
+  username.innerHTML = currLogIn;
+}
 
 function loadUsername() {
   username = document.querySelector("#userNamePlaceholder");
