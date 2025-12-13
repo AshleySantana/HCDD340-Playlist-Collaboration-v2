@@ -104,12 +104,15 @@
             }
         </style>
     </head>
+
+    <!-- Clears local storage everytime createAccount page is opened-->
     <body onload=localStorage.clear()>
         <header class="navbar">
             <div class="nav-left">
               <a href="#" class="logo">PlayList Collaborator</a>
             </div>
 
+            <!-- Navbar-->
             <div class="nav-right">
                 <button id="homeBtn" onclick="toHome()">Home</button>
                 <button id="searchBtn" onclick="toSearchPage()">Search</button>
