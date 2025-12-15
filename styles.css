@@ -252,6 +252,139 @@ Henry: Styles for profile card/status */
 
 /* END of Henry's profile card/status styles */
 
+/* 
+ * HENRY: Camera Button & Modal Styles for Profile Picture
+ * Used on profileLoggedIn.html to allow users to take photos via webcam
+ */
+
+/* Camera Button - Small circular button positioned over the profile avatar (bottom-left corner)
+ * Sits above the status indicator and allows users to activate the camera modal */
+.camera-btn {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--dark-purple);
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background 0.2s;
+    z-index: 5;
+}
+.camera-btn:hover {
+    background: var(--mid-purple);
+    transform: scale(1.1);
+}
+
+/* Camera Modal - Full-screen overlay that appears when camera button is clicked
+ * Contains the live camera feed and capture controls */
+.camera-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Camera Modal Content - White card container holding the camera interface */
+.camera-modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Camera Modal Header - Top section with title and close button */
+.camera-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.camera-modal-header h3 {
+    margin: 0;
+    color: var(--dark-grey);
+}
+
+/* Close Modal Button - X button in top-right corner of modal */
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--dark-grey);
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.close-modal-btn:hover {
+    color: var(--dark-purple);
+}
+
+/* Camera Preview - Container for the live video feed from webcam */
+.camera-preview {
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+.camera-preview video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Camera Controls - Button container at bottom of modal (Capture/Cancel) */
+.camera-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* Camera Action Buttons - Capture Photo and Cancel buttons */
+.camera-action-btn {
+    background: var(--dark-purple);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.camera-action-btn:hover {
+    background: var(--mid-purple);
+}
+
+/* Cancel Button Variant - Gray styling for the cancel action */
+.camera-action-btn.cancel-btn {
+    background: var(--mid-grey);
+}
+.camera-action-btn.cancel-btn:hover {
+    background: var(--dark-grey);
+}
+
+/* END of Henry's camera styles */
+
 /*Start search song styles*/
 
 #searchResults {
