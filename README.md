@@ -4,6 +4,7 @@ The current features that work in this project are:
 - Dynamic song searching
 - User creation and saving usernames to local storage.
 - User status updating on the user creation and profile page.
+- User able to use camera to capture and upload an image for their profile picture.
 - Updating the activity feed on the home page every time a user "adds" a song to a playlist using the plus buttons on a song in the search song page.
 - Clickable navigation bar buttons
 - Libraries > Kpop Playlist, to view an example of what a playlist would look like
